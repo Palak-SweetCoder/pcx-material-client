@@ -1,4 +1,7 @@
 import React from 'react';
+import { AiOutlineFlag } from 'react-icons/ai';
+import { IoIosPeople } from 'react-icons/io';
+import { MdOutlineReviews } from 'react-icons/md';
 
 const Summary = () => {
     return (
@@ -10,8 +13,12 @@ const Summary = () => {
             </div>
             <div>
                 <div className="flex justify-center">
-                    <div className="stats stats-vertical lg:stats-horizontal shadow text-secondary text-center w-full">
+                    <div className="stats stats-vertical lg:stats-horizontal shadow text-white text-center w-full bg-primary">
                         <div className="stat p-6">
+                            <AiOutlineFlag
+                                className="mx-auto mb-3"
+                                size={70}
+                            ></AiOutlineFlag>
                             <div className="stat-value text-5xl font-bold mb-6">
                                 31
                             </div>
@@ -19,6 +26,10 @@ const Summary = () => {
                         </div>
 
                         <div className="stat p-6">
+                            <IoIosPeople
+                                className="mx-auto mb-3"
+                                size={70}
+                            ></IoIosPeople>
                             <div className="stat-value text-5xl font-bold mb-6">
                                 2,100+
                             </div>
@@ -28,6 +39,10 @@ const Summary = () => {
                         </div>
 
                         <div className="stat p-6">
+                            <MdOutlineReviews
+                                className="mx-auto mb-3"
+                                size={70}
+                            ></MdOutlineReviews>
                             <div className="stat-value text-5xl font-bold mb-6">
                                 1,900+
                             </div>
