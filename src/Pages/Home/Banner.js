@@ -9,6 +9,7 @@ const Banner = () => {
                     <img
                         src={bannerimg}
                         className="sm:max-w-sm lg:max-w-lg lg:ml-10"
+                        alt=""
                     />
                     <div className="lg:mr-10">
                         <h2 className="text-3xl text-secondary ">
