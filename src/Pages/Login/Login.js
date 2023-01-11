@@ -16,6 +16,10 @@ const Login = () => {
         console.log(user);
     }
 
+    const onSubmit = (data) => {
+        console.log(data);
+    };
+
     return (
         <div className="flex h-screen justify-center items-center p-4 lg:p-0 mb-20">
             <div className="card w-96 bg-base-100 shadow-xl">
@@ -25,7 +29,7 @@ const Login = () => {
                     </h2>
 
                     {/* -------------------------hook form start---------------------- */}
-                    <form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         {/* -------------------------daisy form start---------------------- */}
 
                         {/* -------------------------email field start---------------------- */}
