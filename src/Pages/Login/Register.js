@@ -1,13 +1,56 @@
 import React from 'react';
+import {
+    useCreateUserWithEmailAndPassword,
+    useSignInWithGoogle,
+    useUpdateProfile,
+} from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Register = () => {
+    const [signInWithGoogle, gUser, gLoading, gError] =
+        useSignInWithGoogle(auth);
+    const [createUserWithEmailAndPassword, user, loading, error] =
+        useCreateUserWithEmailAndPassword(auth);
+    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
     const {
         register,
         formState: { errors },
         handleSubmit,
     } = useForm();
+    const Navigate = useNavigate();
+    let signInError;
+
+    if (gLoading || loading || updating) {
+        return (
+            <div className="text-center p-20">
+                <button className="btn loading text-white btn-secondary">
+                    loading...
+                </button>
+            </div>
+        );
+    }
+
+    if (gError || error || updateError) {
+        signInError = (
+            <p className="text-red-500 p-3">
+                {gError?.message || error?.message || updateError?.message}
+            </p>
+        );
+    }
+
+    if (user || gUser) {
+        console.log(user || gUser);
+    }
+
+    const onSubmit = async (data) => {
+        // console.log(data);
+        createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data.name });
+        console.log('updated');
+        Navigate('/');
+    };
 
     return (
         <div className="flex h-screen justify-center items-center p-4 lg:p-0 mb-20">
@@ -18,8 +61,34 @@ const Register = () => {
                     </h2>
 
                     {/* -------------------------hook form start---------------------- */}
-                    <form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                         {/* -------------------------daisy form start---------------------- */}
+
+                        {/* -------------------------NAME FIELD START---------------------- */}
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Name</span>
+                            </label>
+                            <input
+                                type="text"
+                                placeholder="Your name"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register('name', {
+                                    required: {
+                                        value: true,
+                                        message: 'Name is required',
+                                    },
+                                })}
+                            />
+                            <label className="label">
+                                {errors.name?.type === 'required' && (
+                                    <span className="label-text-alt text-red-500">
+                                        {errors.name.message}
+                                    </span>
+                                )}
+                            </label>
+                        </div>
+                        {/* -------------------------NAME FIELD END---------------------- */}
 
                         {/* -------------------------email field start---------------------- */}
                         <div className="form-control w-full max-w-xs">
@@ -92,47 +161,9 @@ const Register = () => {
                         </div>
                         {/* -------------------------password field end---------------------- */}
 
-                        {/* ---------------confirm password field start---------------- */}
-                        <div className="form-control w-full max-w-xs">
-                            <label className="label">
-                                <span className="label-text">
-                                    Confirm Password
-                                </span>
-                            </label>
-                            <input
-                                type="password"
-                                placeholder="Confirm Password"
-                                className="input input-bordered w-full max-w-xs"
-                                {...register('password', {
-                                    required: {
-                                        value: true,
-                                        message: 'Enter confirm password',
-                                    },
-                                    minLength: {
-                                        value: 6,
-                                        message:
-                                            'Password must be 6 characters or longer',
-                                    },
-                                })}
-                            />
-                            <label className="label">
-                                {errors.password?.type === 'required' && (
-                                    <span className="label-text-alt text-red-500">
-                                        {errors.password.message}
-                                    </span>
-                                )}
-                                {errors.password?.type === 'minLength' && (
-                                    <span className="label-text-alt text-red-500">
-                                        {errors.password.message}
-                                    </span>
-                                )}
-                            </label>
-                        </div>
-                        {/* ---------------confirm password field end---------------- */}
-
                         {/* -------------------------daisy form end---------------------- */}
 
-                        {/* {signInError} */}
+                        {signInError}
 
                         <input
                             className="btn w-full max-w-xs text-white btn-secondary"
@@ -161,7 +192,7 @@ const Register = () => {
                     <div className="divider">OR</div>
                     <button
                         className="btn btn-outline btn-secondary"
-                        // onClick={() => signInWithGoogle()}
+                        onClick={() => signInWithGoogle()}
                     >
                         Continue with Google
                     </button>

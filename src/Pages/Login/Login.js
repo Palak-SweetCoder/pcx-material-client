@@ -1,23 +1,49 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import {
+    useSignInWithEmailAndPassword,
+    useSignInWithGoogle,
+} from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 const Login = () => {
-    const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, gUser, gLoading, gError] =
+        useSignInWithGoogle(auth);
     const {
         register,
         formState: { errors },
         handleSubmit,
     } = useForm();
+    const [signInWithEmailAndPassword, user, loading, error] =
+        useSignInWithEmailAndPassword(auth);
+    let signInError;
 
-    if (user) {
-        console.log(user);
+    if (gLoading || loading) {
+        return (
+            <div className="text-center p-20">
+                <button className="btn loading text-white btn-secondary">
+                    loading...
+                </button>
+            </div>
+        );
+    }
+
+    if (gError || error) {
+        signInError = (
+            <p className="text-red-500 p-3">
+                {gError?.message || error?.message}
+            </p>
+        );
+    }
+
+    if (user || gUser) {
+        console.log(user || gUser);
     }
 
     const onSubmit = (data) => {
-        console.log(data);
+        // console.log(data);
+        signInWithEmailAndPassword(data.email, data.password);
     };
 
     return (
@@ -105,7 +131,7 @@ const Login = () => {
 
                         {/* -------------------------daisy form end---------------------- */}
 
-                        {/* {signInError} */}
+                        {signInError}
 
                         <input
                             className="btn w-full max-w-xs text-white btn-secondary"
