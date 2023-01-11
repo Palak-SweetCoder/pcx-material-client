@@ -1,0 +1,20 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+    content: ['./src/**/*.{html,js}'],
+    daisyui: {
+        themes: [
+            {
+                pcxtheme: {
+                    primary: '#7258DB',
+                    secondary: '#f77225',
+                    accent: '#8c58db',
+                    neutral: '#58addb',
+                    'base-100': '#ffffff',
+                },
+            },
+            'dark',
+            'cupcake',
+        ],
+    },
+    plugins: [require('daisyui')],
+};
