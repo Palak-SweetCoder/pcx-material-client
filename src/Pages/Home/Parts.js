@@ -7,7 +7,7 @@ const Parts = () => {
 
     return (
         <>
-            <div className="container mx-auto mt-20 mb-16">
+            <div className="container mx-auto mt-20 mb-20">
                 <div className="text-center mb-10">
                     <h3 className="text-secondary text-xl font-semibold">
                         OUR MATERIALS

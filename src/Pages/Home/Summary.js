@@ -2,7 +2,7 @@ import React from 'react';
 
 const Summary = () => {
     return (
-        <section className="container mx-auto mb-10 p-4 lg:p-0">
+        <section className="container mx-auto mb-20 p-4 lg:p-0">
             <div className="text-center">
                 <h2 className="text-primary text-4xl font-bold mb-10">
                     OUR BUSINESS SUMMARY
