@@ -2,7 +2,9 @@ import React from 'react';
 import Banner from './Banner';
 import Parts from './Parts';
 import Reviews from './Reviews';
+import About from './About';
 import Summary from './Summary';
+import Subscribe from './Subscribe';
 
 const Home = () => {
     return (
@@ -11,6 +13,8 @@ const Home = () => {
             <Parts />
             <Summary />
             <Reviews />
+            <About />
+            <Subscribe />
         </div>
     );
 };

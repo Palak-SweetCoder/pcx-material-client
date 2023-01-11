@@ -44,7 +44,10 @@ const Navbar = () => {
                             {menuItems}
                         </ul>
                     </div>
-                    <Link className="btn btn-ghost normal-case text-xl text-primary">
+                    <Link
+                        to="/"
+                        className="btn btn-ghost normal-case text-xl text-primary"
+                    >
                         PCX-MATERIAL
                     </Link>
                 </div>

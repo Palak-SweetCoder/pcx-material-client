@@ -1,5 +1,6 @@
 import React from 'react';
 import { ImFacebook, ImInstagram, ImLinkedin, ImTwitter } from 'react-icons/im';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -25,7 +26,10 @@ const Footer = () => {
                             IMPORTANT LINKS
                         </h3>
                         <div className="flex flex-col text-neutral items-start">
-                            <button className="btn btn-ghost">About Us</button>
+                            <button className="btn btn-ghost">
+                                {' '}
+                                <Link to="/about">About Us</Link>{' '}
+                            </button>
                             <button className="btn btn-ghost">
                                 Privacy Policy
                             </button>
