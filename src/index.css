@@ -3,9 +3,12 @@
 @tailwind utilities;
 
 * {
-    color: #8d9db1;
     font-size: 16px;
     line-height: 25px;
+}
+
+p {
+    color: #a1aebe;
 }
 
 body {
