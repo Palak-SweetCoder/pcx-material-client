@@ -1,4 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import BuyNow from './Pages/BuyNow/BuyNow';
 import AddReview from './Pages/Dashboard/AddReview';
@@ -45,6 +47,7 @@ function App() {
                     <Route path="add-review" element={<AddReview />}></Route>
                 </Route>
             </Routes>
+            <ToastContainer />
             <Footer />
         </>
     );

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const BuyNow = () => {
@@ -23,12 +24,24 @@ const BuyNow = () => {
             name: user.displayName,
             email: user.email,
             partsName: part.name,
-            price: part.price,
             myQuantity: e.target.myQuantity.value,
             address: e.target.address.value,
             phone: e.target.phone.value,
         };
-        console.log(order);
+
+        fetch('http://localhost:5000/orders', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(order),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.acknowledged) {
+                    toast.success('Successfully Purchased!!!');
+                }
+            });
     };
 
     return (
@@ -45,10 +58,7 @@ const BuyNow = () => {
                     <p>Available quantity: {part.quantity}</p>
                     <p>Price: {part.price}</p>
                     <div className="card-actions">
-                        <button
-                            // onClick={() => navigateToBuyNow(part._id)}
-                            className="btn btn-secondary rounded-full text-white"
-                        >
+                        <button className="btn btn-secondary rounded-full text-white">
                             Purchase
                         </button>
                     </div>
