@@ -12,7 +12,7 @@ const Subscribe = () => {
                     To get all news about <br /> new business ideas and product
                     stock.
                 </h4>
-                <div className="mt-10">
+                <div className="mt-10 lg:flex justify-center">
                     <input
                         type="text"
                         placeholder="Enter your email here"
@@ -20,7 +20,7 @@ const Subscribe = () => {
                     />
                     <button className="btn btn-secondary text-white">
                         <BiPaperPlane className="text-white mr-2"></BiPaperPlane>
-                        Subscribe
+                        <span>Subscribe</span>
                     </button>
                 </div>
             </div>

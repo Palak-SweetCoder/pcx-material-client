@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import {
     useSignInWithEmailAndPassword,
@@ -17,7 +17,16 @@ const Login = () => {
     } = useForm();
     const [signInWithEmailAndPassword, user, loading, error] =
         useSignInWithEmailAndPassword(auth);
+    const location = useLocation();
+    const navigate = useNavigate();
     let signInError;
+    let from = location.state?.from?.pathname || '/';
+
+    useEffect(() => {
+        if (gUser || user) {
+            navigate(from, { replace: true });
+        }
+    }, [gUser, user, from, navigate]);
 
     if (gLoading || loading) {
         return (
