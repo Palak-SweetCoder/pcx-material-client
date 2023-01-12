@@ -1,6 +1,6 @@
 # MANUFACTURER WEBSITE
 
-## To see the live website: [ELECTRO MAX](https://pcx-material.web.app)
+## To see the live website: [PCX MATERIAL](https://pcx-material.web.app)
 
 ## PROJECT DESCRIPTION:
 
