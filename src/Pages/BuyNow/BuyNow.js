@@ -11,7 +11,7 @@ const BuyNow = () => {
 
     // To load specific data depending on specific id
     useEffect(() => {
-        const url = `http://localhost:5000/parts/${partsId}`;
+        const url = `https://pcx-material-server.up.railway.app/parts/${partsId}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setPart(data));
@@ -29,7 +29,7 @@ const BuyNow = () => {
             phone: e.target.phone.value,
         };
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://pcx-material-server.up.railway.app/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
