@@ -23,6 +23,9 @@ You can change the quantity of the items by increasing or decreasing the quantit
 - React Toastify
 - React Firebase Hooks
 - Firebase Hosting
+- React query
+- Axios
+- Sweet alert 2
 
 #### BACK-END:
 - MongoDB

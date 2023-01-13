@@ -6,6 +6,7 @@ import {
     useSignInWithGoogle,
 } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] =
@@ -46,13 +47,10 @@ const Login = () => {
         );
     }
 
-    if (user || gUser) {
-        console.log(user || gUser);
-    }
-
     const onSubmit = (data) => {
         // console.log(data);
         signInWithEmailAndPassword(data.email, data.password);
+        toast.success('Login success!!!');
     };
 
     return (

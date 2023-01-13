@@ -37,7 +37,7 @@ const Navbar = () => {
             </li>
             <li>
                 {user ? (
-                    <h4 className="text-primary text-xl">
+                    <h4 className="text-primary">
                         <span>user_name:</span> {user.displayName}
                     </h4>
                 ) : (

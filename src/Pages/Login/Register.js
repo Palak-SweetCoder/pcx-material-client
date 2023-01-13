@@ -5,7 +5,8 @@ import {
     useUpdateProfile,
 } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const Register = () => {
@@ -19,7 +20,7 @@ const Register = () => {
         formState: { errors },
         handleSubmit,
     } = useForm();
-    const Navigate = useNavigate();
+    const navigate = useNavigate();
     let signInError;
 
     if (gLoading || loading || updating) {
@@ -40,16 +41,16 @@ const Register = () => {
         );
     }
 
-    if (user || gUser) {
-        console.log(user || gUser);
+    if (gUser || user) {
+        // console.log(gUser, user)
     }
 
     const onSubmit = async (data) => {
         // console.log(data);
-        createUserWithEmailAndPassword(data.email, data.password);
-        await updateProfile({ displayName: data.name });
-        console.log('updated');
-        Navigate('/');
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({ displayName: data?.name });
+        toast.success('Registration successful!!!');
+        navigate('/');
     };
 
     return (

@@ -10,7 +10,7 @@ const Dashboard = () => {
                     type="checkbox"
                     className="drawer-toggle"
                 />
-                <div className="drawer-content flex flex-col items-center mt-5">
+                <div className="drawer-content lg:w-2/3 p-4 container mx-auto">
                     <Outlet />
                 </div>
                 <div className="drawer-side">
@@ -18,8 +18,7 @@ const Dashboard = () => {
                         htmlFor="dashboard-sidebar"
                         className="drawer-overlay"
                     ></label>
-                    <ul className="menu p-4 w-80 bg-primary mb-10 rounded text-white  ">
-                        {/* bg-base-100 text-base-content */}
+                    <ul className="menu p-4 w-48 bg-primary mb-10 rounded text-white  ">
                         {/* <!-- Sidebar content here --> */}
                         <li>
                             <Link to="/dashboard">Welcome Page</Link>

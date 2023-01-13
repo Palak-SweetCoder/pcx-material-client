@@ -7,7 +7,7 @@ const MyProfile = () => {
 
     return (
         <div>
-            <h2 className="text-4xl text-primary font-bold">
+            <h2 className="text-4xl text-primary font-bold text-center">
                 Welcome to your profile
             </h2>
             <div className="p-4">

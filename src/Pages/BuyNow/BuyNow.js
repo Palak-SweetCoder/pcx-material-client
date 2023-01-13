@@ -40,6 +40,7 @@ const BuyNow = () => {
             .then((data) => {
                 if (data.acknowledged) {
                     toast.success('Successfully Purchased!!!');
+                    e.target.reset();
                 }
             });
     };
