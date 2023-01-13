@@ -8,6 +8,7 @@ import AddReview from './Pages/Dashboard/AddReview';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import MyOrder from './Pages/Dashboard/MyOrder';
 import MyProfile from './Pages/Dashboard/MyProfile';
+import Payment from './Pages/Dashboard/Payment';
 import WelcomePage from './Pages/Dashboard/WelcomePage';
 import About from './Pages/Home/About';
 import Home from './Pages/Home/Home';
@@ -47,6 +48,7 @@ function App() {
                     <Route path="my-profile" element={<MyProfile />}></Route>
                     <Route path="my-orders" element={<MyOrder />}></Route>
                     <Route path="add-review" element={<AddReview />}></Route>
+                    <Route path="payment/:id" element={<Payment />}></Route>
                 </Route>
                 <Route path="blogs" element={<Blogs />}></Route>
                 <Route path="*" element={<NotFound />}></Route>

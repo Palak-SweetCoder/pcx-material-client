@@ -26,6 +26,7 @@ You can change the quantity of the items by increasing or decreasing the quantit
 - React query
 - Axios
 - Sweet alert 2
+- Stripe payment process
 
 #### BACK-END:
 - MongoDB

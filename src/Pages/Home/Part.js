@@ -20,7 +20,7 @@ const Part = ({ part }) => {
                     <p>{part.description}</p>
                     <p>Minimum order quantity: {part.minquantity}</p>
                     <p>Available quantity: {part.quantity}</p>
-                    <p>Price: {part.price}</p>
+                    <p>Price: ${part.price}</p>
                     <div className="card-actions">
                         <button
                             onClick={() => navigateToBuyNow(part._id)}

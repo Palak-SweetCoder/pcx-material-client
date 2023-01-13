@@ -1,9 +1,10 @@
 import axios from 'axios';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const MyOrderTable = ({ index, order, refetch }) => {
-    const { name, partsName, email, _id } = order;
+    const { name, partsName, email, _id, price, paid, transactionId } = order;
 
     const handleCancel = () => {
         Swal.fire({
@@ -17,9 +18,7 @@ const MyOrderTable = ({ index, order, refetch }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios
-                    .delete(
-                        `https://pcx-material-server.up.railway.app/orders?id=${_id}`
-                    )
+                    .delete(`http://localhost:5000/orders?id=${_id}`)
                     .then(() => refetch());
                 Swal.fire(
                     'Deleted!',
@@ -37,17 +36,34 @@ const MyOrderTable = ({ index, order, refetch }) => {
             <td>{partsName}</td>
             <td>{email}</td>
             <td>
-                <button
-                    onClick={handleCancel}
-                    className="btn btn-secondary rounded-full text-white"
-                >
-                    Cancel
-                </button>
+                {!paid && (
+                    <button
+                        onClick={handleCancel}
+                        className="btn btn-secondary rounded-full text-white"
+                    >
+                        Cancel
+                    </button>
+                )}
             </td>
             <td>
-                <button className="btn btn-primary rounded-full text-white">
-                    payment
-                </button>
+                {price && !paid && (
+                    <Link to={`/dashboard/payment/${_id}`}>
+                        <button className="btn btn-primary rounded-full text-white">
+                            payment
+                        </button>
+                    </Link>
+                )}
+                {price && paid && (
+                    <div className="text-center">
+                        <span className="text-primary">Paid</span>
+                        <br />
+                        <small>Transaction Id:</small>
+                        <br />
+                        <small className="text-green-500">
+                            {transactionId}
+                        </small>
+                    </div>
+                )}
             </td>
         </tr>
     );

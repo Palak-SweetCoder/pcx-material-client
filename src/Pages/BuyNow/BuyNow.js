@@ -11,7 +11,7 @@ const BuyNow = () => {
 
     // To load specific data depending on specific id
     useEffect(() => {
-        const url = `https://pcx-material-server.up.railway.app/parts/${partsId}`;
+        const url = `http://localhost:5000/parts/${partsId}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setPart(data));
@@ -25,11 +25,12 @@ const BuyNow = () => {
             email: user.email,
             partsName: part.name,
             myQuantity: e.target.myQuantity.value,
+            price: part.price,
             address: e.target.address.value,
             phone: e.target.phone.value,
         };
 
-        fetch('https://pcx-material-server.up.railway.app/orders', {
+        fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -57,7 +58,7 @@ const BuyNow = () => {
                     <p>{part.description}</p>
                     <p>Minimum order quantity: {part.minquantity}</p>
                     <p>Available quantity: {part.quantity}</p>
-                    <p>Price: {part.price}</p>
+                    <p>Price: ${part.price}</p>
                     <div className="card-actions">
                         <button className="btn btn-secondary rounded-full text-white">
                             Purchase
