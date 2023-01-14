@@ -13,13 +13,16 @@ const CheckoutForm = ({ payableOrder }) => {
     const { _id, price, name, email } = payableOrder;
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify({ price }),
-        })
+        fetch(
+            'https://pcx-material-server.up.railway.app/create-payment-intent',
+            {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify({ price }),
+            }
+        )
             .then((res) => res.json())
             .then((data) => {
                 if (data?.clientSecret) {
@@ -27,6 +30,16 @@ const CheckoutForm = ({ payableOrder }) => {
                 }
             });
     }, [price]);
+
+    if (processing) {
+        return (
+            <div className="text-center p-20">
+                <button className="btn loading text-white btn-secondary">
+                    processing...
+                </button>
+            </div>
+        );
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -42,7 +55,7 @@ const CheckoutForm = ({ payableOrder }) => {
             return;
         }
 
-        const { error, paymentMethod } = await stripe.createPaymentMethod({
+        const { error } = await stripe.createPaymentMethod({
             type: 'card',
             card,
         });
@@ -75,7 +88,7 @@ const CheckoutForm = ({ payableOrder }) => {
                 order: _id,
                 transactionId: paymentIntent.id,
             };
-            fetch(`http://localhost:5000/orders/${_id}`, {
+            fetch(`https://pcx-material-server.up.railway.app/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
