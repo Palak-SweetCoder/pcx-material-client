@@ -4,7 +4,7 @@ import Review from './Review';
 
 const Reviews = () => {
     const { data: reviews, isLoading } = useQuery(['reviews'], () =>
-        fetch('https://pcx-material-server.up.railway.app/reviews', {
+        fetch('http://localhost:5000/reviews', {
             method: 'GET',
             headers: {
                 'content-type': 'application/json',

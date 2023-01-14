@@ -13,16 +13,13 @@ const CheckoutForm = ({ payableOrder }) => {
     const { _id, price, name, email } = payableOrder;
 
     useEffect(() => {
-        fetch(
-            'https://pcx-material-server.up.railway.app/create-payment-intent',
-            {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify({ price }),
-            }
-        )
+        fetch('http://localhost:5000/create-payment-intent', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ price }),
+        })
             .then((res) => res.json())
             .then((data) => {
                 if (data?.clientSecret) {
@@ -78,7 +75,7 @@ const CheckoutForm = ({ payableOrder }) => {
                 order: _id,
                 transactionId: paymentIntent.id,
             };
-            fetch(`https://pcx-material-server.up.railway.app/orders/${_id}`, {
+            fetch(`http://localhost:5000/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
