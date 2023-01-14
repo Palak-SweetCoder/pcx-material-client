@@ -22,6 +22,7 @@ You can change the quantity of the items by increasing or decreasing the quantit
 - DaisyUI
 - React Toastify
 - React Firebase Hooks
+- React Hook Form
 - Firebase Hosting
 - React query
 - Axios

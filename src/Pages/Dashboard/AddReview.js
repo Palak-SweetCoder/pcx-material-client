@@ -11,7 +11,7 @@ const AddReview = () => {
             review: e.target.review.value,
         };
 
-        fetch('https://pcx-material-server.up.railway.app/reviews', {
+        fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -78,7 +78,7 @@ const AddReview = () => {
                                     min={1}
                                     max={5}
                                     required
-                                    placeholder="Write your review"
+                                    placeholder="Input your rating"
                                     className="input input-bordered w-full max-w-xs"
                                 />
                             </div>

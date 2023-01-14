@@ -15,6 +15,7 @@ import Home from './Pages/Home/Home';
 import Login from './Pages/Login/Login';
 import Register from './Pages/Login/Register';
 import RequireAuth from './Pages/Login/RequireAuth';
+import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import Footer from './Pages/Shared/Footer';
 import Navbar from './Pages/Shared/Navbar';
 import NotFound from './Pages/Shared/NotFound';
@@ -51,6 +52,7 @@ function App() {
                     <Route path="payment/:id" element={<Payment />}></Route>
                 </Route>
                 <Route path="blogs" element={<Blogs />}></Route>
+                <Route path="my-portfolio" element={<MyPortfolio />}></Route>
                 <Route path="*" element={<NotFound />}></Route>
             </Routes>
             <ToastContainer />
