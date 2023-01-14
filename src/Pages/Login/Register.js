@@ -185,7 +185,7 @@ const Register = () => {
                         <small>
                             Already have an account?{' '}
                             <Link to="/login" className="text-primary">
-                                please login.
+                                Please login.
                             </Link>
                         </small>
                     </p>

@@ -1,7 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import bannerimg from '../../assets/images/banner-img.png';
 
 const Banner = () => {
+    const navigate = useNavigate();
+
+    const navigateToRegister = () => {
+        navigate('/login');
+    };
+
     return (
         <>
             <div className="hero min-h-screens bg-[url('/src/assets/images/banner-bg.png')] w-full lg:h-screen bg-no-repeat bg-cover sm:bg-cover">
@@ -28,7 +35,10 @@ const Banner = () => {
                             <br />
                             We help you with the digital parts you need.
                         </p>
-                        <button className="btn btn-secondary text-white rounded-full">
+                        <button
+                            onClick={navigateToRegister}
+                            className="btn btn-secondary text-white rounded-full"
+                        >
                             Get Started
                         </button>
                     </div>
