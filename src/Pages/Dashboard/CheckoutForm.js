@@ -31,16 +31,6 @@ const CheckoutForm = ({ payableOrder }) => {
             });
     }, [price]);
 
-    if (processing) {
-        return (
-            <div className="text-center p-20">
-                <button className="btn loading text-white btn-secondary">
-                    processing...
-                </button>
-            </div>
-        );
-    }
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
