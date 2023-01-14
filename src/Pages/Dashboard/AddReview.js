@@ -11,7 +11,7 @@ const AddReview = () => {
             review: e.target.review.value,
         };
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://pcx-material-server.up.railway.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
