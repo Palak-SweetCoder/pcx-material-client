@@ -13,16 +13,13 @@ const CheckoutForm = ({ payableOrder }) => {
     const { _id, price, name, email } = payableOrder;
 
     useEffect(() => {
-        fetch(
-            'https://pcx-material-server.up.railway.app/create-payment-intent',
-            {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify({ price }),
-            }
-        )
+        fetch('http://localhost:5000/create-payment-intent', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify({ price }),
+        })
             .then((res) => res.json())
             .then((data) => {
                 if (data?.clientSecret) {
@@ -30,6 +27,10 @@ const CheckoutForm = ({ payableOrder }) => {
                 }
             });
     }, [price]);
+
+    if (processing) {
+        // hello
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -70,7 +71,7 @@ const CheckoutForm = ({ payableOrder }) => {
             setProcessing(false);
         } else {
             setCardError('');
-            console.log(paymentIntent);
+            // console.log(paymentIntent);
             setTransactionId(paymentIntent.id);
             setSuccess('Congratulation!!! Payment Success.');
             // ------------UPDATE DATABASE---------------
@@ -78,7 +79,7 @@ const CheckoutForm = ({ payableOrder }) => {
                 order: _id,
                 transactionId: paymentIntent.id,
             };
-            fetch(`https://pcx-material-server.up.railway.app/orders/${_id}`, {
+            fetch(`http://localhost:5000/orders/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
@@ -123,8 +124,8 @@ const CheckoutForm = ({ payableOrder }) => {
             </form>
             {cardError && <p className="text-red-500">{cardError}</p>}
             {success && (
-                <div className="text-green-500">
-                    <p>{success}</p>
+                <div>
+                    <p className="text-green-500">{success}</p>
                     <p>
                         Your Transaction Id:{' '}
                         <span className="text-secondary font-bold">

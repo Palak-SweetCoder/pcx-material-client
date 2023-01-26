@@ -2,13 +2,13 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-        <div className="container mx-auto p-4 lg:p-0 mt-10 lg:mt-20 mb-20">
-            <h2 className="text-primary text-4xl font-bold text-center mb-9">
+        <div className="container mx-auto p-4 lg:p-0 mt-10 lg:mt-20 mb-20 lg:w-2/4">
+            <h2 className="text-secondary text-4xl font-bold text-center mb-9">
                 Our Blogs
             </h2>
             <div>
                 <div className="mb-6">
-                    <h2 className="text-secondary text-4xl font-bold">
+                    <h2 className="text-primary text-4xl">
                         How will you improve the performance of a React
                         Application?
                     </h2>
@@ -25,7 +25,7 @@ const Blogs = () => {
                     </p>
                 </div>
                 <div className="mb-6">
-                    <h2 className="text-secondary text-4xl font-bold">
+                    <h2 className="text-primary text-4xl">
                         What are the different ways to manage a state in a React
                         application?
                     </h2>
@@ -44,7 +44,7 @@ const Blogs = () => {
                     </p>
                 </div>
                 <div className="mb-6">
-                    <h2 className="text-secondary text-4xl font-bold">
+                    <h2 className="text-primary text-4xl">
                         How does prototypical inheritance work?
                     </h2>
                     <p>
@@ -59,13 +59,15 @@ const Blogs = () => {
                     </p>
                 </div>
                 <div className="mb-6">
-                    <h2 className="text-secondary text-4xl font-bold">
-                        Why you do not set the state directly in React. For
-                        example, if you have const [products, setProducts] =
-                        useState([]). Why you do not set products = [...]
-                        instead, you use the setProducts
+                    <h2 className="text-primary text-4xl">
+                        Why you do not set the state directly in React?
                     </h2>
                     <p>
+                        For example: if you have const [products, setProducts] =
+                        useState([]). Why you do not set products = [...]
+                        instead, you use the setProducts
+                        <br />
+                        <br />
                         There are some application performance related issue
                         that suggest us do not use the state directly. We
                         shouldn't change the state directly since React will
@@ -76,7 +78,7 @@ const Blogs = () => {
                     </p>
                 </div>
                 <div className="mb-6">
-                    <h2 className="text-secondary text-4xl font-bold">
+                    <h2 className="text-primary text-4xl">
                         What is a unit test? Why should write unit tests?
                     </h2>
                     <p>

@@ -1,12 +1,19 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import bannerimg from '../../assets/images/banner-img.png';
+import auth from '../../firebase.init';
 
 const Banner = () => {
+    const [user] = useAuthState(auth);
     const navigate = useNavigate();
 
-    const navigateToRegister = () => {
-        navigate('/login');
+    const getStarted = () => {
+        if (user) {
+            navigate('/dashboard');
+        } else {
+            navigate('/login');
+        }
     };
 
     return (
@@ -36,7 +43,7 @@ const Banner = () => {
                             We help you with the digital parts you need.
                         </p>
                         <button
-                            onClick={navigateToRegister}
+                            onClick={getStarted}
                             className="btn btn-secondary text-white rounded-full"
                         >
                             Get Started

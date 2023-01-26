@@ -12,13 +12,13 @@ const Subscribe = () => {
                     To get all news about <br /> new business ideas and product
                     stock.
                 </h4>
-                <div className="mt-10 lg:flex justify-center">
+                <div className="mt-10 md:flex lg:flex justify-center">
                     <input
                         type="text"
                         placeholder="Enter your email here"
                         className="input input-bordered w-full max-w-xs mb-4 lg:mb-0"
                     />
-                    <button className="btn btn-secondary text-white">
+                    <button className="btn btn-secondary text-white lg:ml-2 md:ml-2 ml-0">
                         <BiPaperPlane className="text-white mr-2"></BiPaperPlane>
                         <span>Subscribe</span>
                     </button>

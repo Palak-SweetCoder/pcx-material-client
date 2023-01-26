@@ -20,6 +20,7 @@ const Login = () => {
         useSignInWithEmailAndPassword(auth);
     const location = useLocation();
     const navigate = useNavigate();
+    const customId = 'for-toast';
     let signInError;
     let from = location.state?.from?.pathname || '/';
 
@@ -47,10 +48,20 @@ const Login = () => {
         );
     }
 
+    if (gUser) {
+        toast.success('Google sign-in success!!!', {
+            toastId: customId,
+        });
+    }
+
     const onSubmit = (data) => {
         // console.log(data);
         signInWithEmailAndPassword(data.email, data.password);
-        toast.success('Login success!!!');
+        if (user || data) {
+            toast.success('Login success!!!');
+        } else {
+            toast.error('Login error!!!');
+        }
     };
 
     return (
@@ -148,7 +159,7 @@ const Login = () => {
                     </form>
                     {/* -------------------------hook form end---------------------- */}
 
-                    <p>
+                    <p className="mt-2">
                         <small>
                             New to PCX material?{' '}
                             <Link to="/register" className="text-primary">

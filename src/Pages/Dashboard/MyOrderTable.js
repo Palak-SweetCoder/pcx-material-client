@@ -18,9 +18,7 @@ const MyOrderTable = ({ index, order, refetch }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 axios
-                    .delete(
-                        `https://pcx-material-server.up.railway.app/orders?id=${_id}`
-                    )
+                    .delete(`http://localhost:5000/orders?id=${_id}`)
                     .then(() => refetch());
                 Swal.fire(
                     'Deleted!',

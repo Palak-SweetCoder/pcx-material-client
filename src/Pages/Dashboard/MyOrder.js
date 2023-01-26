@@ -13,9 +13,7 @@ const MyOrder = () => {
         isLoading,
         refetch,
     } = useQuery(['orders', user], () =>
-        axios.get(
-            `https://pcx-material-server.up.railway.app/orders?email=${user.email}`
-        )
+        axios.get(`http://localhost:5000/orders?email=${user.email}`)
     );
 
     if (isLoading) {

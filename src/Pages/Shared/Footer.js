@@ -16,7 +16,7 @@ const Footer = () => {
                             Phone: +14-698-254-3658
                         </p>
                         <p>
-                            &copy; COPYRIGHT ELECTRO MAX{' '}
+                            &copy; COPYRIGHT PCX MATERIAL{' '}
                             {new Date().getFullYear()}
                         </p>
                     </div>

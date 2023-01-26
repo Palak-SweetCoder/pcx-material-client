@@ -22,6 +22,7 @@ const Register = () => {
     } = useForm();
     const navigate = useNavigate();
     let signInError;
+    const customId = 'for-reg-toast';
 
     if (gLoading || loading || updating) {
         return (
@@ -41,8 +42,14 @@ const Register = () => {
         );
     }
 
-    if (gUser || user) {
+    if (user) {
         // console.log(gUser, user)
+    }
+
+    if (gUser) {
+        toast.success('Google sign-in success!!!', {
+            toastId: customId,
+        });
     }
 
     const onSubmit = async (data) => {
@@ -174,14 +181,7 @@ const Register = () => {
                     </form>
                     {/* -------------------------hook form end---------------------- */}
 
-                    <p>
-                        <small>
-                            New to PCX material?{' '}
-                            <Link to="/register" className="text-primary">
-                                Create New Account.
-                            </Link>
-                        </small>
-                        <br />
+                    <p className="mt-2">
                         <small>
                             Already have an account?{' '}
                             <Link to="/login" className="text-primary">

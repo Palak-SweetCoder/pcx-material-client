@@ -1,7 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import './App.css';
 import Blogs from './Pages/Blogs/Blogs';
 import BuyNow from './Pages/BuyNow/BuyNow';
 import AddReview from './Pages/Dashboard/AddReview';
@@ -26,6 +25,7 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />}></Route>
+                <Route path="home" element={<Home />}></Route>
                 <Route path="about" element={<About />}></Route>
                 <Route path="login" element={<Login />}></Route>
                 <Route path="register" element={<Register />}></Route>

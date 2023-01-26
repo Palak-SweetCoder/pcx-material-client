@@ -18,21 +18,21 @@ const Dashboard = () => {
                         htmlFor="dashboard-sidebar"
                         className="drawer-overlay"
                     ></label>
-                    <ul className="menu p-4 w-48 bg-primary mb-10 rounded text-white  ">
+                    <ul className="menu p-4 w-48 bg-primary mb-10 rounded">
                         {/* <!-- Sidebar content here --> */}
-                        <li>
+                        <li className="text-white">
                             <Link to="/dashboard">Welcome Page</Link>
                         </li>
                         <div className="divider"></div>
-                        <li>
+                        <li className="text-white">
                             <Link to="/dashboard/my-profile">My Profile</Link>
                         </li>
                         <div className="divider"></div>
-                        <li>
+                        <li className="text-white">
                             <Link to="/dashboard/my-orders">My Order</Link>
                         </li>
                         <div className="divider"></div>
-                        <li>
+                        <li className="text-white">
                             <Link to="/dashboard/add-review">Add Review</Link>
                         </li>
                     </ul>

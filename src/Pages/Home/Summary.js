@@ -1,4 +1,5 @@
 import React from 'react';
+import CountUp from 'react-countup';
 import { AiOutlineFlag } from 'react-icons/ai';
 import { IoIosPeople } from 'react-icons/io';
 import { MdOutlineReviews } from 'react-icons/md';
@@ -19,8 +20,14 @@ const Summary = () => {
                                 className="mx-auto mb-3"
                                 size={70}
                             ></AiOutlineFlag>
-                            <div className="stat-value text-5xl font-bold mb-6">
-                                31
+                            <div>
+                                <CountUp
+                                    className="stat-value text-5xl font-bold mb-6"
+                                    start={0}
+                                    end={31}
+                                    duration={3}
+                                    delay={0}
+                                ></CountUp>
                             </div>
                             <h2 className="stat-title text-4xl">Countries</h2>
                         </div>
@@ -30,8 +37,17 @@ const Summary = () => {
                                 className="mx-auto mb-3"
                                 size={70}
                             ></IoIosPeople>
-                            <div className="stat-value text-5xl font-bold mb-6">
-                                2,100+
+                            <div>
+                                <CountUp
+                                    className="stat-value text-5xl font-bold mb-6"
+                                    start={0}
+                                    end={2100}
+                                    duration={3}
+                                    delay={0}
+                                ></CountUp>
+                                <span className="stat-value text-5xl font-bold">
+                                    +
+                                </span>
                             </div>
                             <h2 className="stat-title text-4xl">
                                 Happy Clients
@@ -43,8 +59,17 @@ const Summary = () => {
                                 className="mx-auto mb-3"
                                 size={70}
                             ></MdOutlineReviews>
-                            <div className="stat-value text-5xl font-bold mb-6">
-                                1,900+
+                            <div>
+                                <CountUp
+                                    className="stat-value text-5xl font-bold mb-6"
+                                    start={0}
+                                    end={1900}
+                                    duration={3}
+                                    delay={0}
+                                ></CountUp>
+                                <span className="stat-value text-5xl font-bold">
+                                    +
+                                </span>
                             </div>
                             <h2 className="stat-title text-4xl">Reviews</h2>
                         </div>
