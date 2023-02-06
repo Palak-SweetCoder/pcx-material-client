@@ -1,7 +1,7 @@
 
 # 🚀 Author:
 
-# [Hi, I'm Palak! 👋](https://github.com/Palak-SweetCoder)
+# [Hi, I'm Palak! 👋](https://github.com/palakxdev)
 
 ![Logo](./src/assets/images/pcx-git-banner.png)
 
@@ -111,4 +111,12 @@ To run this project, you will need to add the following environment variables to
 
 ## Feedback
 
-If you have any feedback, please reach out to me at pspalak6@gmail.com
+If you have any feedback, please reach out to me at palakxdev@gmail.com
+
+## 🔗 Links: Reach me out
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/palakxdev/) 
+
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/palakxdev/)
+
+[![facebook](https://img.shields.io/badge/facebook-0A66C2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/palakxdev/)
