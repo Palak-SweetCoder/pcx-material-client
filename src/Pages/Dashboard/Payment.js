@@ -11,7 +11,7 @@ const stripePromise = loadStripe(
 
 const Payment = () => {
     const { id } = useParams();
-    const url = `https://pcx-material-server.up.railway.app/orders/${id}`;
+    const url = `https://gentle-rose-purse.cyclic.app/orders/${id}`;
     const { data: payableOrder, isLoading } = useQuery(
         ['payableOrder', id],
         () => fetch(url).then((res) => res.json())

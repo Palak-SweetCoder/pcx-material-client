@@ -11,7 +11,7 @@ const BuyNow = () => {
 
     // To load specific data depending on specific id
     useEffect(() => {
-        const url = `https://pcx-material-server.up.railway.app/parts/${partsId}`;
+        const url = `https://gentle-rose-purse.cyclic.app/parts/${partsId}`;
         fetch(url)
             .then((res) => res.json())
             .then((data) => setPart(data));
@@ -30,7 +30,7 @@ const BuyNow = () => {
             phone: e.target.phone.value,
         };
 
-        fetch('https://pcx-material-server.up.railway.app/orders', {
+        fetch('https://gentle-rose-purse.cyclic.app/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -11,7 +11,7 @@ const AddReview = () => {
             review: e.target.review.value,
         };
 
-        fetch('https://pcx-material-server.up.railway.app/reviews', {
+        fetch('https://gentle-rose-purse.cyclic.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

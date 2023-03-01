@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const useParts = () => {
     const [parts, setParts] = useState([]);
     useEffect(() => {
-        fetch('https://pcx-material-server.up.railway.app/parts')
+        fetch('https://gentle-rose-purse.cyclic.app/parts')
             .then((res) => res.json())
             .then((data) => setParts(data));
     }, []);

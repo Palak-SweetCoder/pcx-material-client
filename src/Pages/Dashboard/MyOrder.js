@@ -14,7 +14,7 @@ const MyOrder = () => {
         refetch,
     } = useQuery(['orders', user], () =>
         axios.get(
-            `https://pcx-material-server.up.railway.app/orders?email=${user.email}`
+            `https://gentle-rose-purse.cyclic.app/orders?email=${user.email}`
         )
     );
 

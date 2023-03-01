@@ -19,7 +19,7 @@ const MyOrderTable = ({ index, order, refetch }) => {
             if (result.isConfirmed) {
                 axios
                     .delete(
-                        `https://pcx-material-server.up.railway.app/orders?id=${_id}`
+                        `https://gentle-rose-purse.cyclic.app/orders?id=${_id}`
                     )
                     .then(() => refetch());
                 Swal.fire(
